@@ -4,7 +4,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Background from '$lib/components/Background.svelte';
 	import '../app.css';
-	import WindowsQuote from '$lib/components/Windows_Quote.svelte';
+	import QuoteForm from '$lib/components/QuoteForm.svelte';
 
 	interface Props {
 		children?: Snippet;
@@ -30,7 +30,7 @@
 		<p>Our family owned company is happy to serve your houses extorior needs. We offer window cleaning, gutter cleaning, trash removal, breakfast and dinner.</p>
 		<p>Serving Clackamas, Portland, Estacada, Wilsonville, Tigard, Boring, Gresham, Tualatin, Beaverton</p>
 	</div>
-	<div class="quote-form"><WindowsQuote></WindowsQuote></div>
+	<div class="quote-form"><QuoteForm></QuoteForm></div>
 
 </section>
 
