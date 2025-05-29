@@ -98,11 +98,7 @@
 </div>
 
     <style>
-        button:disabled {
-            @apply cursor-default;
-            background: grey;
-            color: black;
-        }
+       
         .tabby {
             gap: 10px;
         }

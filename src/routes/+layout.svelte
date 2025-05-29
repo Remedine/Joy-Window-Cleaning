@@ -33,7 +33,8 @@
 	<div class="quote-form"><QuoteForm></QuoteForm></div>
 
 </section>
-
+<!-- Render child routes here -->
+{@render children()}
 
 	</main>
 	
