@@ -16,7 +16,7 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-
+AI_Guidance.txt
 static/workers
 
 target
