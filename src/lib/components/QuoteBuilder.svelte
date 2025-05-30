@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { type Writable } from 'svelte/store';
-	import { state } from 'svelte'; // Import state rune for Svelte 5
 
 	// Props
 	interface Props {
@@ -16,8 +15,9 @@
 	let { formData, nextTab }: Props = $props();
 
 	// Reactive state with state rune
-	let windows = state<number | undefined>(undefined);
-	let selectedPackage = state<string | undefined>(undefined);
+	let windows = $state(0);
+	let selectedPackage = $state('Basic');
+	let subtotal = $derived(calculateSubtotal(windows, selectedPackage));
 
 	// Handle form submission
 	function handleSubmit(event: Event) {
@@ -44,18 +44,18 @@
 	}
 
 	// Example subtotal calculation (customize based on your pricing logic)
-	function calculateSubtotal(windows: number, pkg: string): number {
-		const prices = {
-			basic: 10, // $10 per window
-			advanced: 15,
-			premium: 20
-		};
-		return windows * prices[pkg as keyof typeof prices];
-	}
+	function calculateSubtotal(windows, pkg) {
+    const prices = {
+      Basic: 15,
+      Advanced: 20,
+      Premium: 25,
+    };
+    return windows * prices[pkg] || 0;
+  }
 </script>
 
 <h2>Customer Quote Form</h2>
-<form class="windows-quote-form" on:submit={handleSubmit}>
+<form class="windows-quote-form" onsubmit={handleSubmit}>
 	<div class="form-group">
 		<label for="windows">
 			How many Windows?
